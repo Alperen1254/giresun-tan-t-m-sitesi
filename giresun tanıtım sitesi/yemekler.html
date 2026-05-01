@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yöresel Yemekler | Giresun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>Giresun</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item"><a class="nav-link" href="tarih.html">Tarihi</a></li>
+        <li class="nav-item"><a class="nav-link" href="gezilecek.html">Gezilecek</a></li>
+        <li class="nav-item"><a class="nav-link" href="yemekler.html">Yemekler</a></li>
+        <li class="nav-item"><a class="nav-link" href="kultur.html">Kültür</a></li>
+        <li class="nav-item"><a class="nav-link" href="doga.html">Doğa</a></li>
+        <li class="nav-item"><a class="nav-link" href="spor.html">Spor</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('imgs/1280px-Castle_of_Giresun.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-subtitle">Karadeniz'in Lezzetleri</div>
+      <h1 class="page-hero-title">Yöresel Yemekler</h1>
+      <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+          <li class="breadcrumb-item active">Yöresel Yemekler</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">12 Tarif</span>
+      <h2 class="section-title">Giresun Mutfağından Lezzetler</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Resme tıklayarak tam tarife ulaşın. Malzemeler ve adım adım yapılış bilgisi tam ekranda açılır.</p>
+    </div>
+
+    <!-- ARAMA -->
+    <div class="search-wrap" data-aos="fade-up">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="foodSearch" class="form-control" placeholder="Yemek ara... (örn: kuymak, hamsi)">
+    </div>
+
+    <!-- FİLTRE -->
+    <div class="filter-bar" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn" data-filter="ana-yemek"><i class="fas fa-utensils me-1"></i>Ana Yemekler</button>
+      <button class="filter-btn" data-filter="tatli"><i class="fas fa-birthday-cake me-1"></i>Tatlılar</button>
+      <button class="filter-btn" data-filter="findik"><i class="fas fa-seedling me-1"></i>Fındık Ürünleri</button>
+      <button class="filter-btn" data-filter="corba"><i class="fas fa-mug-hot me-1"></i>Çorbalar</button>
+    </div>
+    <p id="no-results" class="filter-result"><i class="fas fa-search me-2"></i>Arama sonucu bulunamadı.</p>
+
+    <div class="row g-4">
+      <!-- Kuymak -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="ana-yemek" data-food-name="Kuymak" data-tags="misir unu peynir tereyag karadeniz" data-aos="fade-up" data-aos-delay="0">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/Muhlama.jpg" alt="Kuymak" data-modal-type="food" data-modal-key="kuymak" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Ana Yemek</span><span class="badge-cat badge-gold">20 dk</span></div>
+            <div class="g-card-title">Kuymak</div>
+            <p class="g-card-text">Mısır unu, kaşar peyniri ve tereyağının buluştuğu Karadeniz'in en ikonik kahvaltılığı.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mıhlama -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="ana-yemek" data-food-name="Mıhlama" data-tags="misir unu peynir tereyag kis" data-aos="fade-up" data-aos-delay="60">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/Muhlama.jpg" alt="Mıhlama" data-modal-type="food" data-modal-key="mihlama" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Ana Yemek</span><span class="badge-cat badge-gold">25 dk</span></div>
+            <div class="g-card-title">Mıhlama</div>
+            <p class="g-card-text">Tereyağında kavrulan mısır ununun peynirle buluşmasından doğan, sıcacık kış yemeği.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hamsi Tava -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="ana-yemek" data-food-name="Hamsi Tava" data-tags="hamsi balik kizartma karadeniz" data-aos="fade-up" data-aos-delay="120">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/hamsitava.webp" alt="Hamsi Tava" data-modal-type="food" data-modal-key="hamsi-tava" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-blue">Balık</span><span class="badge-cat badge-gold">20 dk</span></div>
+            <div class="g-card-title">Hamsi Tava</div>
+            <p class="g-card-text">Karadeniz'in simgesi hamsi, mısır unuyla kaplanıp kızartıldığında lezzet şöleni sunar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hamsi Pilavı -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="ana-yemek" data-food-name="Hamsi Pilavı" data-tags="hamsi pilav pirinc findik kuru uzum" data-aos="fade-up" data-aos-delay="180">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Hamsili_pilav_-_Flickr_-_gulinvardar.jpg" alt="Hamsi Pilavı" data-modal-type="food" data-modal-key="hamsi-pilavi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-blue">Balık</span><span class="badge-cat badge-gold">50 dk</span></div>
+            <div class="g-card-title">Hamsi Pilavı</div>
+            <p class="g-card-text">İçine ve dışına hamsi dizilmiş, fındık ve kuş üzümüyle hazırlanan Karadeniz'in özgün pilav tarifi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karalahana Çorbası -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="corba" data-food-name="Karalahana Çorbası" data-tags="karalahana lahana corba sebze" data-aos="fade-up" data-aos-delay="0">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Pancar_soup.jpg" alt="Karalahana Çorbası" data-modal-type="food" data-modal-key="karalahana-corbasi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-teal">Çorba</span><span class="badge-cat badge-gold">45 dk</span></div>
+            <div class="g-card-title">Karalahana Çorbası</div>
+            <p class="g-card-text">Kış sofralarının ısıtıcısı: karalahana, mısır unu ve baharatlı tereyağı sosuyla hazırlanan şifalı çorba.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mısır Unu Çorbası -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="corba" data-food-name="Mısır Unu Çorbası" data-tags="misir unu sut corba" data-aos="fade-up" data-aos-delay="60">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/mısırunucorba.jpg" alt="Mısır Unu Çorbası" data-modal-type="food" data-modal-key="misir-unu-corbasi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-teal">Çorba</span><span class="badge-cat badge-gold">25 dk</span></div>
+            <div class="g-card-title">Mısır Unu Çorbası</div>
+            <p class="g-card-text">Karadeniz'in mısır unu geleneğini yansıtan sade ve besleyici çorba. Üzerine biber ve kekik sizzle ile servis edilir.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giresun Böreği -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="ana-yemek" data-food-name="Giresun Böreği" data-tags="borek peynir yufka ispanak" data-aos="fade-up" data-aos-delay="120">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/su_boregi.jpg" alt="Giresun Böreği" data-modal-type="food" data-modal-key="giresun-boregi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Börek</span><span class="badge-cat badge-gold">40 dk</span></div>
+            <div class="g-card-title">Giresun Böreği</div>
+            <p class="g-card-text">Peynir, yumurta ve ıspanak harcıyla hazırlanan, yöreye özgü yumuşak iç ve çıtır dışlı börek.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laz Böreği -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="tatli" data-food-name="Laz Böreği" data-tags="tatli muhallebi yufka borek citirir" data-aos="fade-up" data-aos-delay="180">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Lazboregi.jpg" alt="Laz Böreği" data-modal-type="food" data-modal-key="laz-boregi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-red">Tatlı</span><span class="badge-cat badge-gold">60 dk</span></div>
+            <div class="g-card-title">Laz Böreği</div>
+            <p class="g-card-text">Çıtır yufkalar arasına muhallebi doldurulan Karadeniz'in tatlı şaheseri. Hem görsel hem de lezzet olarak eşsiz.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fındıklı Baklava -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="tatli,findik" data-food-name="Fındıklı Baklava" data-tags="baklava findik tatli yufka" data-aos="fade-up" data-aos-delay="0">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/fındıklıbaklava.jpg" alt="Fındıklı Baklava" data-modal-type="food" data-modal-key="findikli-baklava" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-red">Tatlı</span><span class="badge-cat badge-gold">90 dk</span></div>
+            <div class="g-card-title">Fındıklı Baklava</div>
+            <p class="g-card-text">Ceviz yerine Giresun fındığının kullanıldığı bu baklava, şerbeti ve özel tadıyla cevizli baklavadan farklı bir deneyim sunar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fındıklı Lokum -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="tatli,findik" data-food-name="Fındıklı Lokum" data-tags="lokum findik tatli gul suyu" data-aos="fade-up" data-aos-delay="60">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Turkish_delight_from_Istanbul.jpg" alt="Fındıklı Lokum" data-modal-type="food" data-modal-key="findikli-lokum" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-red">Tatlı</span><span class="badge-cat badge-gold">60 dk</span></div>
+            <div class="g-card-title">Fındıklı Lokum</div>
+            <p class="g-card-text">Taze Giresun fındığı ve gül suyuyla hazırlanan bu lokum, Türkiye genelinde tanınan coğrafi işaretli bir tatlıdır.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fındık Ezmesi -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="findik" data-food-name="Fındık Ezmesi" data-tags="findik ezme dogal cografi isaretli" data-aos="fade-up" data-aos-delay="120">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/findik-ezmesi.webp" alt="Fındık Ezmesi" data-modal-type="food" data-modal-key="findik-ezmesi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Fındık</span><span class="badge-cat badge-gold">20 dk</span></div>
+            <div class="g-card-title">Fındık Ezmesi</div>
+            <p class="g-card-text">Coğrafi işaretli Giresun fındığından yapılan doğal ezme. Hem kahvaltılık hem pişirme malzemesi olarak kullanılır.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giresun Kaymağı -->
+      <div class="col-lg-3 col-md-4 col-sm-6" data-cat="findik,tatli" data-food-name="Giresun Kaymağı" data-tags="kaymak sut yayla dogal" data-aos="fade-up" data-aos-delay="180">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Kaymak_in_Turkey.jpg" alt="Giresun Kaymağı" data-modal-type="food" data-modal-key="kaymak" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-book-open me-1"></i>Tarifi Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-teal">Yayla Ürünü</span><span class="badge-cat badge-gold">Doğal</span></div>
+            <div class="g-card-title">Giresun Kaymağı</div>
+            <p class="g-card-text">Yayladan gelen tam yağlı sütten elde edilen, bal ve fındık ezmesiyle servis edilen özgün Karadeniz kaymağı.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coğrafi İşaretli Ürünler Bilgi Kutusu -->
+    <div class="row mt-5" data-aos="fade-up">
+      <div class="col-12">
+        <div class="info-box">
+          <h5 class="fw-bold mb-3"><i class="fas fa-certificate me-2 text-accent"></i>Coğrafi İşaretli Giresun Ürünleri</h5>
+          <div class="row g-3">
+            <div class="col-md-3 col-6">
+              <div class="d-flex align-items-center gap-2"><i class="fas fa-seedling text-success fs-5"></i><div><div class="fw-semibold small">Giresun Fındığı</div><div class="text-muted" style="font-size:.75rem">Tescilli ürün</div></div></div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="d-flex align-items-center gap-2"><i class="fas fa-apple-alt text-danger fs-5"></i><div><div class="fw-semibold small">Giresun Kirazı</div><div class="text-muted" style="font-size:.75rem">Tescilli ürün</div></div></div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="d-flex align-items-center gap-2"><i class="fas fa-leaf text-success fs-5"></i><div><div class="fw-semibold small">Espiye Balı</div><div class="text-muted" style="font-size:.75rem">Yöresel ürün</div></div></div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="d-flex align-items-center gap-2"><i class="fas fa-fish text-info fs-5"></i><div><div class="fw-semibold small">Giresun Hamsisi</div><div class="text-muted" style="font-size:.75rem">Yöresel ürün</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row g-4 pb-4 mb-2" style="border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="col-lg-4 col-md-6"><div class="footer-brand mb-3"><i class="fas fa-leaf me-2"></i>Giresun</div><p class="footer-text">Fındığın başkenti, Karadeniz'in incisi.</p><div class="social-icons mt-3"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Sayfalar</h6><ul class="footer-links"><li><a href="index.html">Ana Sayfa</a></li><li><a href="tarih.html">Tarihi</a></li><li><a href="gezilecek.html">Gezilecek</a></li><li><a href="yemekler.html">Yemekler</a></li><li><a href="galeri.html">Galeri</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Keşfet</h6><ul class="footer-links"><li><a href="kultur.html">Kültür</a></li><li><a href="doga.html">Doğa</a></li><li><a href="spor.html">Spor</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+      <div class="col-lg-4 col-md-6"><h6 class="footer-heading">Bize Ulaşın</h6><div class="footer-contact"><p><i class="fas fa-map-marker-alt me-2 text-accent"></i>Giresun, Türkiye</p><p><i class="fas fa-phone me-2 text-accent"></i>+90 (454) 216 10 00</p><p><i class="fas fa-envelope me-2 text-accent"></i>info@giresun.bel.tr</p></div></div>
+    </div>
+    <div class="text-center py-2"><p class="footer-copy mb-0">© 2026 Giresun Tanıtım Sitesi</p></div>
+  </div>
+</footer>
+
+<div id="preloader"><div class="preloader-icon"><i class="fas fa-leaf"></i></div></div>
+<div id="fsModal" role="dialog" aria-modal="true"><button class="fs-close" onclick="closeModal()"><i class="fas fa-times"></i></button><div id="fsContent"></div></div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9998"><div id="mainToast" class="toast align-items-center text-bg-success border-0"><div class="d-flex"><div class="toast-body" id="toastMsg">İşlem başarılı!</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div></div></div>
+<button id="scrollTop" title="Yukarı çık"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

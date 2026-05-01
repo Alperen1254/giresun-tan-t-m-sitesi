@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotoğraf Galerisi | Giresun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-grid {
+      columns: 4;
+      column-gap: 16px;
+      padding: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        columns: 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        columns: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        columns: 1;
+      }
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+    }
+
+    .gallery-item .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .65) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .gallery-item:hover .g-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item .g-overlay-text {
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+
+    .gallery-item .g-overlay-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, .2);
+      backdrop-filter: blur(6px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity .35s ease, transform .35s ease;
+      transform: translate(-50%, -50%) scale(.7);
+    }
+
+    .gallery-item:hover .g-overlay-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .gallery-item .g-cat-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      backdrop-filter: blur(6px);
+    }
+
+    .g-stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      padding: 30px 0 10px;
+    }
+
+    .g-stat-pill {
+      background: var(--surface);
+      border: 1px solid #e0e0e0;
+      border-radius: 40px;
+      padding: 10px 24px;
+      font-size: .85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .g-stat-pill i {
+      color: var(--primary);
+    }
+
+    .g-stat-pill strong {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>Giresun</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="tarih.html">Tarihi</a></li>
+          <li class="nav-item"><a class="nav-link" href="gezilecek.html">Gezilecek</a></li>
+          <li class="nav-item"><a class="nav-link" href="yemekler.html">Yemekler</a></li>
+          <li class="nav-item"><a class="nav-link" href="kultur.html">Kültür</a></li>
+          <li class="nav-item"><a class="nav-link" href="doga.html">Doğa</a></li>
+          <li class="nav-item"><a class="nav-link" href="spor.html">Spor</a></li>
+          <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link btn-nav" href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('imgs/1280px-Kapu_Mosque.jpg')"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-subtitle">Görsel Keşif</div>
+        <h1 class="page-hero-title">Fotoğraf Galerisi</h1>
+        <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+            <li class="breadcrumb-item active">Galeri</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Vizüel Hazine</span>
+        <h2 class="section-title">Giresun'un Renkleri</h2>
+        <div class="section-divider"></div>
+        <p class="text-muted text-center mx-auto" style="max-width:560px;line-height:1.8">Doğası, tarihi, kültürü ve
+          lezzetleriyle Giresun'un büyüleyici dünyasına fotoğraflar aracılığıyla bir bakış atın.</p>
+      </div>
+
+      <div class="g-stats-row" data-aos="fade-up">
+        <div class="g-stat-pill"><i class="fas fa-images"></i><strong>24</strong> Fotoğraf</div>
+        <div class="g-stat-pill"><i class="fas fa-tags"></i><strong>6</strong> Kategori</div>
+        <div class="g-stat-pill"><i class="fas fa-map-marker-alt"></i><strong>Giresun</strong> Türkiye</div>
+        <div class="g-stat-pill"><i class="fas fa-camera"></i>Tıkla &amp; Büyüt</div>
+      </div>
+
+      <div class="filter-bar mt-4" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="doga"><i class="fas fa-tree me-1"></i>Doğa</button>
+        <button class="filter-btn" data-filter="tarih"><i class="fas fa-landmark me-1"></i>Tarihi</button>
+        <button class="filter-btn" data-filter="sahil"><i class="fas fa-umbrella-beach me-1"></i>Sahil</button>
+        <button class="filter-btn" data-filter="yemek"><i class="fas fa-utensils me-1"></i>Yemek</button>
+        <button class="filter-btn" data-filter="kultur"><i class="fas fa-masks-theater me-1"></i>Kültür</button>
+        <button class="filter-btn" data-filter="sehir"><i class="fas fa-city me-1"></i>Şehir</button>
+      </div>
+      <p id="no-results" class="filter-result"><i class="fas fa-search me-2"></i>Bu kategoride fotoğraf yok.</p>
+
+      <div class="gallery-grid mt-4" id="galleryGrid">
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/karagol_lake.jpg','Karagöl — Doğanın Gözü','doga')">
+          <img src="imgs/karagol_lake.jpg" alt="Karagöl" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Karagöl — 1985 m</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="tarih" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/1280px-Castle_of_Giresun.jpg','Giresun Kalesi — M.Ö. 2. Yüzyıl','tarih')">
+          <img src="imgs/1280px-Castle_of_Giresun.jpg" alt="Giresun Kalesi" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(121,85,72,.75);color:#fff">Tarihi</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Giresun Kalesi</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sahil" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/1280px-Giresun_Ada.jpg','Giresun Adası — Efsanevi Küçük Ada','sahil')">
+          <img src="imgs/1280px-Giresun_Ada.jpg" alt="Giresun Adası" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(21,101,192,.75);color:#fff">Sahil</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Giresun Adası</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="yemek" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/Muhlama.jpg','Kuymak — Karadeniz\'in Altın Lezzeti','yemek')">
+          <img src="imgs/Muhlama.jpg" alt="Kuymak" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(230,126,34,.85);color:#fff">Yemek</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Kuymak</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/orman.jpg','Kümbet Yaylası — 1600 m Yükseklik','doga')">
+          <img src="imgs/orman.jpg" alt="Kümbet Yaylası" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Kümbet Yaylası</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="kultur" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/horon_dance.jpg','Horon — Karadeniz Halk Oyunu','kultur')">
+          <img src="imgs/horon_dance.jpg" alt="Horon" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(106,27,154,.75);color:#fff">Kültür</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Horon</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sehir" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/giresunmerkez.jpg','Giresun Şehir Merkezi','sehir')">
+          <img src="imgs/giresunmerkez.jpg" alt="Şehir Merkezi" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(38,50,56,.75);color:#fff">Şehir</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Şehir Merkezi</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/1280px-Castle_of_Giresun.jpg','Batlama Şelalesi — 23 m Yükseklik','doga')">
+          <img src="imgs/1280px-Castle_of_Giresun.jpg" alt="Batlama Şelalesi" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Batlama Şelalesi</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="tarih" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/1280px-Kapu_Mosque.jpg','Zeytinlik Camii — 19. Yüzyıl','tarih')">
+          <img src="imgs/1280px-Kapu_Mosque.jpg" alt="Zeytinlik Camii" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(121,85,72,.75);color:#fff">Tarihi</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Zeytinlik Camii</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="yemek" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/Muhlama.jpg','Mıhlama — Misket Peynirli Lezzet','yemek')">
+          <img src="imgs/Muhlama.jpg" alt="Mıhlama" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(230,126,34,.85);color:#fff">Yemek</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Mıhlama</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sahil" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/dalga.jpg','Karadeniz — Dalgalar ve Ufuk','sahil')">
+          <img src="imgs/dalga.jpg" alt="Karadeniz" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(21,101,192,.75);color:#fff">Sahil</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Karadeniz Dalgaları</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="kultur" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/_aksu-senlikleri-3-6297.jpg','Aksu Festivali — Mayıs Kutlamaları','kultur')">
+          <img src="imgs/_aksu-senlikleri-3-6297.jpg" alt="Aksu Festivali" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(106,27,154,.75);color:#fff">Kültür</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Aksu Festivali</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/findikbahcesi.jpg','Fındık Bahçeleri — Hasat Mevsimi','doga')">
+          <img src="imgs/findikbahcesi.jpg" alt="Fındık Bahçeleri" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Fındık Bahçeleri</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sehir" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/kıyı.jpg','Giresun Limanı — Balıkçı Tekneleri','sehir')">
+          <img src="imgs/kıyı.jpg" alt="Giresun Limanı" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(38,50,56,.75);color:#fff">Şehir</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Giresun Limanı</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="tarih" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/1280px-Castle_of_Giresun.jpg','Giresun Müzesi — Tarihi Eserler','tarih')">
+          <img src="imgs/1280px-Castle_of_Giresun.jpg" alt="Giresun Müzesi" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(121,85,72,.75);color:#fff">Tarihi</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Giresun Müzesi</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="yemek" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/1280px-Kara_lahana_sarma.jpg','Lahana Sarması — Geleneksel Lezzet','yemek')">
+          <img src="imgs/1280px-Kara_lahana_sarma.jpg" alt="Lahana Sarması" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(230,126,34,.85);color:#fff">Yemek</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Lahana Sarması</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/kulakkaya.jpg','Kulakkaya Yaylası — 2200 m Zirve','doga')">
+          <img src="imgs/kulakkaya.jpg" alt="Kulakkaya" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Kulakkaya Yaylası</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sahil" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/bulunacakplajı.webp','Bulancak Plajı — Karadeniz Kıyısı','sahil')">
+          <img src="imgs/bulunacakplajı.webp" alt="Bulancak" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(21,101,192,.75);color:#fff">Sahil</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Bulancak Plajı</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="kultur" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/kıyafet.webp','Geleneksel Kıyafetler — Yöresel Motifler','kultur')">
+          <img src="imgs/kıyafet.webp" alt="Geleneksel Kıyafetler" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(106,27,154,.75);color:#fff">Kültür</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Geleneksel Kıyafetler</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sehir" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/manzara.jpg','Giresun Gece Manzarası — Işık Şöleni','sehir')">
+          <img src="imgs/manzara.jpg" alt="Gece Manzarası" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(38,50,56,.75);color:#fff">Şehir</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Gece Manzarası</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="doga" data-aos="zoom-in" data-aos-delay="0"
+          onclick="openGalleryModal('imgs/karagol_lake.jpg','Sahara Gölü — Milli Park İçindeki İnci','doga')">
+          <img src="imgs/karagol_lake.jpg" alt="Sahara Gölü" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(46,125,50,.75);color:#fff">Doğa</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Sahara Gölü</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="yemek" data-aos="zoom-in" data-aos-delay="40"
+          onclick="openGalleryModal('imgs/hamsitava.webp','Hamsi Tava — Karadeniz\'in Vazgeçilmezi','yemek')">
+          <img src="imgs/hamsitava.webp" alt="Hamsi Tava" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(230,126,34,.85);color:#fff">Yemek</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Hamsi Tava</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="tarih" data-aos="zoom-in" data-aos-delay="80"
+          onclick="openGalleryModal('imgs/1280px-Castle_of_Giresun.jpg','Tarihi İlçeler — Dereli & Espiye','tarih')">
+          <img src="imgs/1280px-Castle_of_Giresun.jpg" alt="Tarihi İlçeler" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(121,85,72,.75);color:#fff">Tarihi</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Tarihi İlçeler</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-cat="sahil" data-aos="zoom-in" data-aos-delay="120"
+          onclick="openGalleryModal('imgs/gunbatımı.jpg','Giresun Günbatımı — Karadeniz Renkleri','sahil')">
+          <img src="imgs/gunbatımı.jpg" alt="Günbatımı" loading="lazy">
+          <div class="g-cat-badge" style="background:rgba(21,101,192,.75);color:#fff">Sahil</div>
+          <div class="g-overlay">
+            <div class="g-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+            <div class="g-overlay-text">Günbatımı</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row g-4 pb-4 mb-2" style="border-bottom:1px solid rgba(255,255,255,.1)">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand mb-3"><i class="fas fa-leaf me-2"></i>Giresun</div>
+          <p class="footer-text">Fındığın başkenti, Karadeniz'in incisi.</p>
+          <div class="social-icons mt-3"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+                class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i
+                class="fab fa-youtube"></i></a></div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="footer-heading">Sayfalar</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="tarih.html">Tarihi</a></li>
+            <li><a href="gezilecek.html">Gezilecek</a></li>
+            <li><a href="yemekler.html">Yemekler</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="footer-heading">Keşfet</h6>
+          <ul class="footer-links">
+            <li><a href="kultur.html">Kültür</a></li>
+            <li><a href="doga.html">Doğa</a></li>
+            <li><a href="spor.html">Spor</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h6 class="footer-heading">Bize Ulaşın</h6>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt me-2 text-accent"></i>Giresun, Türkiye</p>
+            <p><i class="fas fa-phone me-2 text-accent"></i>+90 (454) 216 10 00</p>
+            <p><i class="fas fa-envelope me-2 text-accent"></i>info@giresun.bel.tr</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center py-2">
+        <p class="footer-copy mb-0">© 2026 Giresun Tanıtım Sitesi</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader">
+    <div class="preloader-icon"><i class="fas fa-leaf"></i></div>
+  </div>
+  <div id="fsModal" role="dialog" aria-modal="true"><button class="fs-close" onclick="closeModal()"><i
+        class="fas fa-times"></i></button>
+    <div id="fsContent"></div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9998">
+    <div id="mainToast" class="toast align-items-center text-bg-success border-0">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">İşlem başarılı!</div><button type="button"
+          class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+  <button id="scrollTop" title="Yukarı çık"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function openGalleryModal(src, title, cat) {
+      const fakeEl = { dataset: { modalType: 'image', imgSrc: src, imgTitle: title } };
+      openModal(fakeEl);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('#galleryGrid .gallery-item');
+      const noResults = document.getElementById('no-results');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const filter = this.dataset.filter;
+          let visible = 0;
+          items.forEach(item => {
+            const cat = item.dataset.cat || '';
+            const show = filter === 'all' || cat === filter;
+            item.style.display = show ? 'block' : 'none';
+            if (show) visible++;
+          });
+          noResults.style.display = visible === 0 ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

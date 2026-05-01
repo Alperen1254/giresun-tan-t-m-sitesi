@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarihi | Giresun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>Giresun</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item"><a class="nav-link" href="tarih.html">Tarihi</a></li>
+        <li class="nav-item"><a class="nav-link" href="gezilecek.html">Gezilecek</a></li>
+        <li class="nav-item"><a class="nav-link" href="yemekler.html">Yemekler</a></li>
+        <li class="nav-item"><a class="nav-link" href="kultur.html">Kültür</a></li>
+        <li class="nav-item"><a class="nav-link" href="doga.html">Doğa</a></li>
+        <li class="nav-item"><a class="nav-link" href="spor.html">Spor</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav" href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('imgs/1280px-Castle_of_Giresun.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-subtitle">Geçmişten Günümüze</div>
+      <h1 class="page-hero-title">Giresun'un Tarihi</h1>
+      <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+          <li class="breadcrumb-item active">Tarihi</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- GİRİŞ -->
+<section class="bg-light-green">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="section-eyebrow">Kerasus'tan Giresun'a</span>
+        <h2 class="section-title mt-1">~2600 Yıllık Köklü Tarih</h2>
+        <div class="section-divider left"></div>
+        <p class="text-muted lh-lg">Giresun'un tarihi M.Ö. 600'lü yıllara, Miletli kolonistlerin kurduğu <strong>Kerasus</strong> şehrine dayanmaktadır. Latince <em>cerasus</em> sözcüğünden türeyen "kiraz" kelimesi, bu kadim şehrin adından tüm dünyaya yayılmıştır.</p>
+        <p class="text-muted lh-lg">Pontus Krallığı, Roma, Bizans ve Osmanlı İmparatorluğu dönemlerini kapsayan çok katmanlı bu tarih, şehrin her köşesinde kendini göstermektedir.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-6"><div class="info-box"><strong style="color:var(--accent)">M.Ö. ~600</strong><br><small class="text-muted">Kuruluş</small></div></div>
+          <div class="col-6"><div class="info-box"><strong style="color:var(--accent)">1461</strong><br><small class="text-muted">Osmanlı Dönemi</small></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div style="position:relative">
+          <img src="imgs/1280px-Castle_of_Giresun.jpg" alt="Giresun Tarihi" class="w-100 rounded-4 shadow-lg" style="cursor:pointer" data-modal-type="image" data-img-src="imgs/1280px-Castle_of_Giresun.jpg" data-img-title="Giresun Tarihi Dokusu" onclick="openModal(this)" loading="lazy">
+          <div class="position-absolute bottom-0 start-0 m-3 p-3 rounded-3" style="background:rgba(45,90,39,.9);color:#fff;max-width:200px">
+            <div style="font-size:.75rem;opacity:.7;letter-spacing:1px">KERASUS</div>
+            <div class="fw-bold">Kirazın Anavatanı</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KRONOLOJIK TİMELİNE -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Kronoloji</span>
+      <h2 class="section-title">Önemli Tarihi Olaylar</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item" data-aos="fade-right">
+        <div class="tl-box">
+          <div class="tl-year">M.Ö. ~600</div>
+          <div class="tl-title">Kerasus'un Kuruluşu</div>
+          <p class="tl-desc">Miletli kolonistler tarafından "Kerasus" adıyla kurulan şehir, günümüz Giresun'unun temelini oluşturur. Kiraz meyvesinin adı bu şehirden tüm dünyaya yayılmıştır.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-left">
+        <div class="tl-box">
+          <div class="tl-year">M.Ö. 183 — M.S. 63</div>
+          <div class="tl-title">Pontus Krallığı</div>
+          <p class="tl-desc">Giresun, Pontus Krallığı'nın önemli bir liman kentine dönüştü. VI. Mithridates döneminde bölge büyük refah yaşadı; Roma ile uzun soluklu mücadeleler başladı.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-right">
+        <div class="tl-box">
+          <div class="tl-year">M.S. 395</div>
+          <div class="tl-title">Bizans Yönetimi</div>
+          <p class="tl-desc">Roma'nın ikiye bölünmesiyle Giresun Doğu Roma (Bizans) topraklarına katıldı. Hristiyanlık yaygınlaştı; kiliseler, surlar ve yeni yapılar inşa edildi.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-left">
+        <div class="tl-box">
+          <div class="tl-year">1204</div>
+          <div class="tl-title">Trabzon Rum İmparatorluğu</div>
+          <p class="tl-desc">IV. Haçlı Seferi'nin ardından kurulan Trabzon Rum İmparatorluğu döneminde Giresun, Karadeniz ticaretinin önemli bir merkezine dönüştü.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-right">
+        <div class="tl-box">
+          <div class="tl-year">1461</div>
+          <div class="tl-title">Osmanlı Fethi</div>
+          <p class="tl-desc">Fatih Sultan Mehmet komutasındaki Osmanlı ordusu Giresun'u fethederek Trabzon Eyaleti'ne bağladı. Şehir, yeni camii, han ve çarşılarla yeniden şekillendi.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-left">
+        <div class="tl-box">
+          <div class="tl-year">1877</div>
+          <div class="tl-title">Bağımsız Sancak</div>
+          <p class="tl-desc">Tanzimat reformlarının etkisiyle Giresun bağımsız bir sancak statüsüne kavuştu. Fındık tarımı ve deniz ticareti ekonomiyi canlandırdı.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-right">
+        <div class="tl-box">
+          <div class="tl-year">1920</div>
+          <div class="tl-title">Kurtuluş Savaşı</div>
+          <p class="tl-desc">Topal Osman Ağa önderliğindeki Giresunlu kuvvetler Kurtuluş Savaşı'na etkin biçimde katıldı. Şehir, millî mücadelenin en fedakâr destekçileri arasında yer aldı.</p>
+        </div>
+      </div>
+      <div class="tl-item" data-aos="fade-left">
+        <div class="tl-box">
+          <div class="tl-year">1923 — Günümüz</div>
+          <div class="tl-title">Cumhuriyet Dönemi</div>
+          <p class="tl-desc">Cumhuriyet'in ilanıyla Giresun il statüsü kazandı. Fındık üretimi ve ihracatı şehrin lokomotif sektörü olurken turizm de giderek önem kazandı.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARİHİ YAPILAR -->
+<section class="bg-light-green">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Tarihi Miras</span>
+      <h2 class="section-title">Tarihi Yapılar</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Resimlere tıklayarak harita konumu ve 3D görünüme ulaşabilirsiniz.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Castle_of_Giresun.jpg" alt="Giresun Kalesi" data-modal-type="historical" data-modal-key="giresun-kalesi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Kale</span><span class="badge-cat badge-gold">M.Ö. 4. yy.</span></div>
+            <div class="g-card-title">Giresun Kalesi</div>
+            <p class="g-card-text">Şehre hâkim tepede konumlanan antik kale, Bizans ve Osmanlı dönemlerine ait katmanlar barındırır. Olağanüstü Karadeniz manzarası sunar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Giresun_Ada.jpg" alt="Giresun Adası" data-modal-type="historical" data-modal-key="giresun-adasi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-blue">Ada</span><span class="badge-cat badge-gold">Antik Dönem</span></div>
+            <div class="g-card-title">Giresun Adası</div>
+            <p class="g-card-text">Karadeniz'in Türkiye kıyısındaki tek adası. Amazon efsaneleriyle anılan, içinde Ares Tapınağı kalıntıları barındıran gizemli ada.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Kapu_Mosque.jpg" alt="Zeytinlik Camii" data-modal-type="historical" data-modal-key="zeytinlik-camii" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-teal">Cami</span><span class="badge-cat badge-gold">18. yy.</span></div>
+            <div class="g-card-title">Zeytinlik Camii</div>
+            <p class="g-card-text">Osmanlı döneminden kalma özgün ahşap işçiliğiyle öne çıkan tarihi cami. Giresun'un kentsel dokusunun vazgeçilmez bir parçasıdır.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/960px-Tirebolu.JPG" alt="Tirebolu Kalesi" data-modal-type="historical" data-modal-key="tirebolu-kalesi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Kale</span><span class="badge-cat badge-gold">Bizans Dönemi</span></div>
+            <div class="g-card-title">Tirebolu Kalesi</div>
+            <p class="g-card-text">Deniz kıyısındaki kayalıklara kurulmuş Bizans dönemi kalesi. Tarihi Tripolis limanını koruyan bu yapı, bugün eşsiz manzarasıyla ziyaretçileri ağırlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/sebinkarahisar_castle.jpg" alt="Şebinkarahisar Kalesi" data-modal-type="historical" data-modal-key="sebinkarahisar-kalesi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-green">Kale</span><span class="badge-cat badge-red">1600 m Rakım</span></div>
+            <div class="g-card-title">Şebinkarahisar Kalesi</div>
+            <p class="g-card-text">Colandos dağının zirvesinde, 1600 metre rakımda yükselen görkemli kale. Hitit, Roma, Bizans ve Osmanlı medeniyetlerinin izlerini taşır.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="g-card">
+          <div class="g-card-img">
+            <img src="imgs/giresunmüze.jpg" alt="Giresun Müzesi" data-modal-type="historical" data-modal-key="giresun-muzesi" onclick="openModal(this)" loading="lazy">
+            <div class="card-overlay"><span class="card-overlay-btn" onclick="openModal(this.closest('.g-card-img').querySelector('img'))"><i class="fas fa-map-marked-alt me-1"></i>Haritada Gör</span></div>
+          </div>
+          <div class="g-card-body">
+            <div class="g-card-badges"><span class="badge-cat badge-blue">Müze</span><span class="badge-cat badge-teal">Arkeoloji</span></div>
+            <div class="g-card-title">Giresun Müzesi</div>
+            <p class="g-card-text">Eski bir Rum kilisesinin içinde hizmet veren müze, yörenin arkeolojik ve etnografik eserlerini barındırır. Şehrin tarihini belgeleyen özgün bir mekân.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4 pb-4 mb-2" style="border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="col-lg-4 col-md-6"><div class="footer-brand mb-3"><i class="fas fa-leaf me-2"></i>Giresun</div><p class="footer-text">Fındığın başkenti, Karadeniz'in incisi.</p><div class="social-icons mt-3"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Sayfalar</h6><ul class="footer-links"><li><a href="index.html">Ana Sayfa</a></li><li><a href="tarih.html">Tarihi</a></li><li><a href="gezilecek.html">Gezilecek</a></li><li><a href="yemekler.html">Yemekler</a></li><li><a href="galeri.html">Galeri</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Keşfet</h6><ul class="footer-links"><li><a href="kultur.html">Kültür</a></li><li><a href="doga.html">Doğa</a></li><li><a href="spor.html">Spor</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+      <div class="col-lg-4 col-md-6"><h6 class="footer-heading">Bize Ulaşın</h6><div class="footer-contact"><p><i class="fas fa-map-marker-alt me-2 text-accent"></i>Giresun, Türkiye</p><p><i class="fas fa-phone me-2 text-accent"></i>+90 (454) 216 10 00</p><p><i class="fas fa-envelope me-2 text-accent"></i>info@giresun.bel.tr</p></div></div>
+    </div>
+    <div class="text-center py-2"><p class="footer-copy mb-0">© 2026 Giresun Tanıtım Sitesi</p></div>
+  </div>
+</footer>
+
+<div id="preloader"><div class="preloader-icon"><i class="fas fa-leaf"></i></div></div>
+<div id="fsModal" role="dialog" aria-modal="true"><button class="fs-close" onclick="closeModal()"><i class="fas fa-times"></i></button><div id="fsContent"></div></div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9998"><div id="mainToast" class="toast align-items-center text-bg-success border-0"><div class="d-flex"><div class="toast-body" id="toastMsg">İşlem başarılı!</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div></div></div>
+<button id="scrollTop" title="Yukarı çık"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

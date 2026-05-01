@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Giresun - Karadeniz'in İncisi. Fındığın başkenti, tarihi ve doğasıyla keşfetmeye değer.">
+  <title>Giresun — Karadeniz'in İncisi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>Giresun</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="tarih.html">Tarihi</a></li>
+          <li class="nav-item"><a class="nav-link" href="gezilecek.html">Gezilecek</a></li>
+          <li class="nav-item"><a class="nav-link" href="yemekler.html">Yemekler</a></li>
+          <li class="nav-item"><a class="nav-link" href="kultur.html">Kültür</a></li>
+          <li class="nav-item"><a class="nav-link" href="doga.html">Doğa</a></li>
+          <li class="nav-item"><a class="nav-link" href="spor.html">Spor</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link btn-nav" href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="homeHero">
+    <div class="home-hero-bg"></div>
+    <div class="home-hero-overlay"></div>
+    <div class="home-hero-content container px-3">
+      <div class="hero-eyebrow"><i class="fas fa-map-marker-alt me-1"></i>Karadeniz Bölgesi, Türkiye</div>
+      <h1 class="hero-main-title">Giresun</h1>
+      <p class="hero-slogan"><span id="tw-text"></span><span class="cursor"></span></p>
+      <div class="hero-chips">
+        <span class="hero-chip"><i class="fas fa-seedling me-1"></i>Fındığın Anavatanı</span>
+        <span class="hero-chip"><i class="fas fa-water me-1"></i>Karadeniz Kıyısı</span>
+        <span class="hero-chip"><i class="fas fa-history me-1"></i>~2600 Yıllık Tarih</span>
+        <span class="hero-chip"><i class="fas fa-tree me-1"></i>%64 Ormanlık Alan</span>
+      </div>
+      <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+        <a href="gezilecek.html" class="btn-primary-g"><i class="fas fa-compass"></i>Keşfet</a>
+        <a href="tarih.html" class="btn-outline-g" style="color:#fff;border-color:rgba(255,255,255,.5)"><i
+            class="fas fa-landmark"></i>Tarihi</a>
+      </div>
+    </div>
+    <div class="scroll-cue" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- NEDEN GİRESUN -->
+  <section id="features" class="bg-light-green">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Neden Giresun?</span>
+        <h2 class="section-title">Şehri Keşfedin</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">Karadeniz'in kalbi Giresun, binlerce yıllık tarihi, büyüleyici doğası ve zengin
+          mutfağıyla her ziyaretçiyi kendine hayran bırakır.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="text-center p-4 rounded-4 bg-white shadow-sm h-100" style="border-top:4px solid var(--primary)">
+            <div class="mb-3" style="font-size:2.8rem;color:var(--primary)"><i class="fas fa-landmark"></i></div>
+            <h5 class="fw-bold">Tarihi Zenginlik</h5>
+            <p class="text-muted small lh-lg">M.Ö. 600'den beri var olan Kerasus, kirazın dünyaya yayıldığı kadim
+              şehirdir. Kaleler, adalar ve tarih kokar her sokakta.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-center p-4 rounded-4 bg-white shadow-sm h-100" style="border-top:4px solid var(--secondary)">
+            <div class="mb-3" style="font-size:2.8rem;color:var(--secondary)"><i class="fas fa-mountain"></i></div>
+            <h5 class="fw-bold">Doğal Güzellik</h5>
+            <p class="text-muted small lh-lg">Yemyeşil yaylalar, gürül gürül akan şelaleler, kristal berraklığındaki
+              göller ve Karadeniz'in mavi sonsuzluğu.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-center p-4 rounded-4 bg-white shadow-sm h-100" style="border-top:4px solid var(--accent)">
+            <div class="mb-3" style="font-size:2.8rem;color:var(--accent)"><i class="fas fa-utensils"></i></div>
+            <h5 class="fw-bold">Lezzet Kültürü</h5>
+            <p class="text-muted small lh-lg">Kuymak, mıhlama, hamsi pilavı ve dünyaca ünlü Giresun fındığından yapılan
+              eşsiz lezzetler damakları şenlendirir.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-center p-4 rounded-4 bg-white shadow-sm h-100" style="border-top:4px solid #1565c0">
+            <div class="mb-3" style="font-size:2.8rem;color:#1565c0"><i class="fas fa-water"></i></div>
+            <h5 class="fw-bold">Karadeniz'in Kalbi</h5>
+            <p class="text-muted small lh-lg">Karadeniz kıyısındaki tek Türk adası, antik Amazon efsanesi ve yılda bir
+              kutlanan mistik Aksu Festivali.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BÖLÜM KARTI GRİDİ -->
+  <section style="background:#fff;">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Siteyi Keşfet</span>
+        <h2 class="section-title">Tüm Bölümler</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="0">
+          <a href="tarih.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#e8f5e9;font-size:1.8rem;color:var(--primary)"><i
+                  class="fas fa-landmark"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Tarihi</h5>
+              <p class="text-muted small mb-0">Antik çağdan Osmanlı'ya uzanan köklü tarih</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="60">
+          <a href="gezilecek.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#e8f5e9;font-size:1.8rem;color:var(--secondary)"><i
+                  class="fas fa-map-marked-alt"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Gezilecek Yerler</h5>
+              <p class="text-muted small mb-0">12+ turistik nokta, harita ve 3D görünüm</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="120">
+          <a href="yemekler.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#fff8e1;font-size:1.8rem;color:#c48510"><i
+                  class="fas fa-utensils"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Yöresel Yemekler</h5>
+              <p class="text-muted small mb-0">12 özgün tarif, kategori ve arama özelliği</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="180">
+          <a href="kultur.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#fce4ec;font-size:1.8rem;color:#c62828"><i
+                  class="fas fa-music"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Kültür</h5>
+              <p class="text-muted small mb-0">Horon, festivaller, gelenekler ve ünlüler</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="0">
+          <a href="doga.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#e0f2f1;font-size:1.8rem;color:#00695c"><i
+                  class="fas fa-tree"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Doğal Güzellikler</h5>
+              <p class="text-muted small mb-0">Yaylalar, göller, şelaleler, sahiller</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="60">
+          <a href="spor.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#fbe9e7;font-size:1.8rem;color:#bf360c"><i
+                  class="fas fa-futbol"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Spor</h5>
+              <p class="text-muted small mb-0">Giresunspor ve şehrin spor kültürü</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="120">
+          <a href="galeri.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#e3f2fd;font-size:1.8rem;color:#1565c0"><i
+                  class="fas fa-images"></i></div>
+              <h5 class="fw-bold text-dark mb-1">Galeri</h5>
+              <p class="text-muted small mb-0">Fotoğraf galerisi, kategorili filtreleme</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="180">
+          <a href="iletisim.html" class="text-decoration-none">
+            <div class="g-card text-center" style="padding:32px 20px;">
+              <div class="mb-3 rounded-circle mx-auto d-flex align-items-center justify-content-center"
+                style="width:64px;height:64px;background:#ede7f6;font-size:1.8rem;color:#4527a0"><i
+                  class="fas fa-envelope"></i></div>
+              <h5 class="fw-bold text-dark mb-1">İletişim</h5>
+              <p class="text-muted small mb-0">Bize ulaşın, mesaj gönderin</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TANITIM VİDEOSU -->
+  <section class="bg-light-green video-section pb-5 pt-3">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Görsel Keşif</span>
+        <h2 class="section-title">Giresun Tanıtım Videosu</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">Giresun'un eşsiz güzelliklerine, kültürüne ve tarihine kısa bir video ile şahit olun.
+        </p>
+      </div>
+      <div class="row justify-content-center" data-aos="zoom-in">
+        <div class="col-lg-10">
+          <div class="ratio ratio-16x9 rounded-4 shadow-lg overflow-hidden" style="border: 4px solid #fff; background: #000;">
+            <video src="imgs/giresun_tanitim.mp4" controls preload="metadata" style="width:100%; height:100%; object-fit:cover;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İSTATİSTİKLER -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title white">Giresun Rakamlarla</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="0">
+          <div class="stat-card">
+            <div class="stat-num" data-count="480" data-suffix="K+">0</div>
+            <div class="stat-lbl">Nüfus</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stat-card">
+            <div class="stat-num" data-count="6934" data-suffix=" km²">0</div>
+            <div class="stat-lbl">Yüzölçümü</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-card">
+            <div class="stat-num" data-count="16" data-suffix="">0</div>
+            <div class="stat-lbl">İlçe</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stat-card">
+            <div class="stat-num" data-count="2600" data-suffix=" Yıl+">0</div>
+            <div class="stat-lbl">Tarihi Geçmiş</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HARİTA -->
+  <section class="bg-light-green">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Konum</span>
+        <h2 class="section-title">Harita Üzerinde Giresun</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div data-aos="fade-up">
+        <div class="map-frame-box" style="border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md)">
+          <iframe src="https://maps.google.com/maps?q=Giresun,Turkey&z=11&output=embed" allowfullscreen loading="lazy"
+            title="Giresun Haritası" style="width:100%;height:440px;border:none;display:block;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-4 pb-4 mb-2" style="border-bottom:1px solid rgba(255,255,255,.1)">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand mb-3"><i class="fas fa-leaf me-2"></i>Giresun</div>
+          <p class="footer-text">Fındığın başkenti, Karadeniz'in incisi. Tarihi, kültürü ve doğasıyla eşsiz bir Türkiye
+            şehri.</p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="footer-heading">Sayfalar</h6>
+          <ul class="footer-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="tarih.html">Tarihi</a></li>
+            <li><a href="gezilecek.html">Gezilecek</a></li>
+            <li><a href="yemekler.html">Yemekler</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h6 class="footer-heading">Keşfet</h6>
+          <ul class="footer-links">
+            <li><a href="kultur.html">Kültür</a></li>
+            <li><a href="doga.html">Doğa</a></li>
+            <li><a href="spor.html">Spor</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h6 class="footer-heading">Bize Ulaşın</h6>
+          <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt me-2 text-accent"></i>Giresun, Türkiye</p>
+            <p><i class="fas fa-phone me-2 text-accent"></i>+90 (454) 216 10 00</p>
+            <p><i class="fas fa-envelope me-2 text-accent"></i>info@giresun.bel.tr</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center py-2">
+        <p class="footer-copy mb-0">© 2026 Giresun Tanıtım Sitesi — Bootstrap 5 ile yapılmıştır</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader">
+    <div class="preloader-icon"><i class="fas fa-leaf"></i></div>
+  </div>
+  <div id="fsModal" role="dialog" aria-modal="true"><button class="fs-close" onclick="closeModal()"><i
+        class="fas fa-times"></i></button>
+    <div id="fsContent"></div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9998">
+    <div id="mainToast" class="toast align-items-center text-bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">İşlem başarılı!</div><button type="button"
+          class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+  <button id="scrollTop" title="Yukarı çık"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

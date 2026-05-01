@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim | Giresun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid #e8f5e9;
+      border-radius: 18px;
+      padding: 36px 32px;
+      height: 100%;
+      transition: box-shadow .3s ease, transform .3s ease;
+    }
+    .contact-card:hover {
+      box-shadow: 0 12px 36px rgba(46,125,50,.12);
+      transform: translateY(-4px);
+    }
+    .contact-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+    .contact-form-wrap {
+      background: var(--surface);
+      border: 1px solid #e8f5e9;
+      border-radius: 20px;
+      padding: 48px 44px;
+      box-shadow: 0 8px 32px rgba(46,125,50,.07);
+    }
+    @media (max-width: 576px) {
+      .contact-form-wrap { padding: 28px 20px; }
+    }
+    .form-control, .form-select {
+      border: 1.5px solid #dcedc8;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: .9rem;
+      transition: border-color .25s, box-shadow .25s;
+      background: #fff;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(46,125,50,.1);
+      outline: none;
+    }
+    .form-label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: 7px;
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+      width: 100%;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(46,125,50,.35);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit i { margin-right: 8px; }
+    .map-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      height: 420px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .faq-item {
+      border: 1px solid #e8f5e9;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: box-shadow .25s;
+    }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(46,125,50,.1); }
+    .faq-btn {
+      background: var(--surface);
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 18px 24px;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .faq-btn i.faq-icon {
+      color: var(--primary);
+      font-size: .8rem;
+      margin-left: auto;
+      transition: transform .3s;
+    }
+    .faq-btn[aria-expanded="true"] i.faq-icon { transform: rotate(180deg); }
+    .faq-body {
+      padding: 0 24px 20px;
+      font-size: .88rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      background: var(--surface);
+    }
+    .char-counter {
+      font-size: .75rem;
+      color: #aaa;
+      text-align: right;
+      margin-top: 4px;
+    }
+    .success-overlay {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+    }
+    .success-overlay i {
+      font-size: 3.5rem;
+      color: var(--primary);
+      animation: popIn .5s cubic-bezier(.175,.885,.32,1.275) forwards;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-leaf me-2"></i>Giresun</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item"><a class="nav-link" href="tarih.html">Tarihi</a></li>
+        <li class="nav-item"><a class="nav-link" href="gezilecek.html">Gezilecek</a></li>
+        <li class="nav-item"><a class="nav-link" href="yemekler.html">Yemekler</a></li>
+        <li class="nav-item"><a class="nav-link" href="kultur.html">Kültür</a></li>
+        <li class="nav-item"><a class="nav-link" href="doga.html">Doğa</a></li>
+        <li class="nav-item"><a class="nav-link" href="spor.html">Spor</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav active" href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('imgs/1280px-Kapu_Mosque.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-hero-subtitle">Bize Ulaşın</div>
+      <h1 class="page-hero-title">İletişim</h1>
+      <nav aria-label="breadcrumb" class="breadcrumb-wrap">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+          <li class="breadcrumb-item active">İletişim</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- İLETİŞİM BİLGİLERİ KARTLARI -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Nasıl Ulaşırım?</span>
+      <h2 class="section-title">İletişim Bilgileri</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="contact-card text-center">
+          <div class="contact-icon-wrap mx-auto" style="background:#e8f5e9">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary)"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Adres</h5>
+          <p class="text-muted mb-0" style="font-size:.88rem;line-height:1.7">Giresun Valiliği<br>Atatürk Bulvarı No:1<br>Giresun, Türkiye</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="contact-card text-center">
+          <div class="contact-icon-wrap mx-auto" style="background:#fff8e1">
+            <i class="fas fa-phone" style="color:var(--accent)"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Telefon</h5>
+          <p class="text-muted mb-1" style="font-size:.88rem">Belediye: <strong>+90 (454) 216 10 00</strong></p>
+          <p class="text-muted mb-0" style="font-size:.88rem">Turizm: <strong>+90 (454) 212 34 56</strong></p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="contact-card text-center">
+          <div class="contact-icon-wrap mx-auto" style="background:#e3f2fd">
+            <i class="fas fa-envelope" style="color:#1565c0"></i>
+          </div>
+          <h5 class="fw-bold mb-2">E-posta</h5>
+          <p class="text-muted mb-1" style="font-size:.88rem"><a href="mailto:info@giresun.bel.tr" class="text-primary">info@giresun.bel.tr</a></p>
+          <p class="text-muted mb-0" style="font-size:.88rem"><a href="mailto:turizm@giresun.gov.tr" class="text-primary">turizm@giresun.gov.tr</a></p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="contact-card text-center">
+          <div class="contact-icon-wrap mx-auto" style="background:#fce4ec">
+            <i class="fas fa-clock" style="color:#c62828"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Çalışma Saatleri</h5>
+          <p class="text-muted mb-1" style="font-size:.88rem">Pzt – Cum: <strong>08:00 – 17:30</strong></p>
+          <p class="text-muted mb-0" style="font-size:.88rem">Cmt – Paz: <strong>Kapalı</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM + HARİTA -->
+    <div class="row g-5 align-items-start">
+      <!-- FORM -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="contact-form-wrap">
+          <h3 class="section-title text-start mb-1" style="font-size:1.6rem">Mesaj Gönderin</h3>
+          <div class="section-divider left mb-4"></div>
+          <p class="text-muted mb-4" style="font-size:.9rem;line-height:1.7">Giresun hakkında merak ettiklerinizi sormak, öneri iletmek veya turizm bilgisi almak için aşağıdaki formu doldurun; en kısa sürede yanıtlayalım.</p>
+
+          <div id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Ad Soyad <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="fcName" placeholder="Ad Soyadınız" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">E-posta <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="fcEmail" placeholder="ornek@eposta.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Telefon</label>
+                <input type="tel" class="form-control" id="fcPhone" placeholder="+90 5xx xxx xx xx">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Konu <span class="text-danger">*</span></label>
+                <select class="form-select" id="fcSubject" required>
+                  <option value="" disabled selected>Konu seçin...</option>
+                  <option value="turizm">Turizm Bilgisi</option>
+                  <option value="yemek">Yöresel Lezzetler</option>
+                  <option value="ulasim">Ulaşım & Konaklama</option>
+                  <option value="etkinlik">Etkinlik & Festival</option>
+                  <option value="doga">Doğa & Kamp</option>
+                  <option value="diger">Diğer</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mesajınız <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="fcMessage" rows="5" maxlength="1000" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                <div class="char-counter"><span id="charCount">0</span> / 1000</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="fcPrivacy" required>
+                  <label class="form-check-label" for="fcPrivacy" style="font-size:.83rem;color:var(--text-secondary)">
+                    <a href="#" class="text-primary">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum.
+                  </label>
+                </div>
+                <button type="button" class="btn-submit" id="submitBtn" onclick="handleContactSubmit()">
+                  <i class="fas fa-paper-plane"></i>Mesajı Gönder
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="success-overlay" id="successOverlay">
+            <i class="fas fa-check-circle mb-4 d-block"></i>
+            <h4 class="fw-bold mb-2">Mesajınız İletildi!</h4>
+            <p class="text-muted">Teşekkür ederiz. En kısa sürede size geri dönüş yapacağız.</p>
+            <button class="btn-submit mt-3" style="width:auto;padding:10px 32px" onclick="resetForm()">
+              <i class="fas fa-redo me-2"></i>Yeni Mesaj
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HARİTA -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <h4 class="fw-bold mb-3">Haritada Bul</h4>
+        <div class="map-wrap mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47987.93120285!2d38.36786!3d40.9128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406897a563db38e3%3A0xb15fd8d4f8b8b3b7!2sGiresun%2C%20T%C3%BCrkiye!5e0!3m2!1str!2str!4v1699000000000!5m2!1str!2str"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="d-flex flex-column gap-3">
+          <!-- Harici Yönlendirme -->
+          <a href="https://www.google.com/maps?daddr=Giresun,Turkey" target="_blank" rel="noopener"
+             class="d-flex align-items-center gap-3 p-3 rounded-3 text-decoration-none"
+             style="background:var(--surface);border:1px solid var(--primary);transition:box-shadow .25s"
+             onmouseover="this.style.boxShadow='0 4px 16px rgba(46,125,50,.12)'"
+             onmouseout="this.style.boxShadow='none'">
+            <div style="width:42px;height:42px;border-radius:10px;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <i class="fas fa-location-arrow text-white"></i>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:.95rem;color:var(--text-primary)">Navigasyon Başlat</div>
+              <div style="font-size:.78rem;color:var(--text-secondary)">Haritalar ile yol tarifi alın</div>
+            </div>
+            <i class="fas fa-external-link-alt ms-auto" style="color:var(--primary);font-size:.9rem"></i>
+          </a>
+
+          <!-- Ulaşım Seçenekleri Akordiyon -->
+          <div class="mt-2 p-3 rounded-3" style="background:var(--surface);border:1px solid #e8f5e9">
+            <h6 class="fw-bold mb-3" style="font-size:1rem;color:var(--text-primary)"><i class="fas fa-car-side me-2" style="color:var(--accent)"></i>Şehre Ulaşım Seçenekleri</h6>
+            
+            <div class="accordion accordion-flush" id="ulasimAccordion">
+              <!-- Havayolu -->
+              <div class="accordion-item" style="border:none;background:transparent">
+                <h2 class="accordion-header" id="headingAir">
+                  <button class="accordion-button collapsed py-2 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAir" style="background:transparent;box-shadow:none;font-weight:600;font-size:.88rem">
+                    <i class="fas fa-plane-departure text-primary me-2"></i> Havayolu ile Ulaşım
+                  </button>
+                </h2>
+                <div id="collapseAir" class="accordion-collapse collapse" data-bs-parent="#ulasimAccordion">
+                  <div class="accordion-body px-1 py-2 text-muted" style="font-size:.82rem;line-height:1.6">
+                    Ordu-Giresun Havalimanı (OGU), şehir merkezine yaklaşık <strong>30 km (30 dakika)</strong> uzaklıktadır. Havalimanından şehir merkezine sık aralıklarla hareket eden <strong>HAVAŞ ve dolmuş</strong> seferleri bulunmaktadır.
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Karayolu -->
+              <div class="accordion-item" style="border:none;background:transparent">
+                <h2 class="accordion-header" id="headingBus">
+                  <button class="accordion-button collapsed py-2 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBus" style="background:transparent;box-shadow:none;font-weight:600;font-size:.88rem">
+                    <i class="fas fa-bus text-success me-2"></i> Otobüs ile Ulaşım
+                  </button>
+                </h2>
+                <div id="collapseBus" class="accordion-collapse collapse" data-bs-parent="#ulasimAccordion">
+                  <div class="accordion-body px-1 py-2 text-muted" style="font-size:.82rem;line-height:1.6">
+                    Türkiye'nin hemen her ilinden Giresun Şehirlerarası Otobüs Terminali'ne direkt seferler mevcuttur. Terminal, merkezde yer aldığı için şehir içi ulaşım çok rahattır.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Özel Araç -->
+              <div class="accordion-item" style="border:none;background:transparent">
+                <h2 class="accordion-header" id="headingCar">
+                  <button class="accordion-button collapsed py-2 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCar" style="background:transparent;box-shadow:none;font-weight:600;font-size:.88rem">
+                    <i class="fas fa-car text-danger me-2"></i> Özel Araç ile Ulaşım
+                  </button>
+                </h2>
+                <div id="collapseCar" class="accordion-collapse collapse" data-bs-parent="#ulasimAccordion">
+                  <div class="accordion-body px-1 py-2 text-muted" style="font-size:.82rem;line-height:1.6">
+                    Karadeniz Sahil Yolu (D010) üzerinden rahatlıkla ulaşabilirsiniz. <br>
+                    • Trabzon'a 130 km (1.5 saat)<br>
+                    • Samsun'a 200 km (2.5 saat)<br>
+                    • Ankara'ya 600 km (7.5 saat)<br>
+                    • İstanbul'a 930 km (11.5 saat)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sosyal Medya -->
+          <div class="p-3 rounded-3 mt-1" style="background:var(--surface);border:1px solid #e8f5e9">
+            <h6 class="fw-bold mb-3" style="font-size:.85rem;text-transform:uppercase;letter-spacing:.8px;color:var(--text-secondary)">Sosyal Medya</h6>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#" class="social-link-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SSS -->
+<section class="bg-light-green">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-eyebrow">Yardım</span>
+      <h2 class="section-title">Sık Sorulan Sorular</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+          <button class="faq-btn" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false">
+            <i class="fas fa-question-circle" style="color:var(--primary)"></i>
+            Giresun'a nasıl gidilir?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div id="faq1" class="collapse">
+            <div class="faq-body">
+              Giresun'a uçak, otobüs ve araçla ulaşabilirsiniz. En yakın havalimanı Giresun-Ordu Havalimanı (GZP) olup İstanbul, Ankara ve İzmir'den direkt uçuşlar mevcuttur. Otobüsle ise İstanbul'dan yaklaşık 13-14 saat sürer. Karadeniz kıyı yolu üzerinden araçla gelmek de oldukça keyiflidir.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="60">
+          <button class="faq-btn" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+            <i class="fas fa-question-circle" style="color:var(--primary)"></i>
+            Giresun'u ziyaret etmek için en iyi dönem hangisi?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div id="faq2" class="collapse">
+            <div class="faq-body">
+              Giresun'u ziyaret için ideal dönem Mayıs–Eylül ayları arasıdır. Haziran–Ağustos yaylaları gezmek için mükemmeldir. Mayıs ayında Aksu Festivali, Ağustos'ta fındık hasadı ve kültür festivali düzenlenir. Kış aylarında kar yağışı yaşanabilmekle birlikte dağ sporları için tercih edilir.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="120">
+          <button class="faq-btn" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+            <i class="fas fa-question-circle" style="color:var(--primary)"></i>
+            Giresun Adası'na nasıl gidilir?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div id="faq3" class="collapse">
+            <div class="faq-body">
+              Giresun Adası'na şehir merkezindeki iskeledan kısa tekne gezileriyle ulaşılabilir. Ada, Türkiye kıyılarındaki tek yerleşim izine sahip ada olma özelliği taşır. Ziyaret için önceden sefer saatlerini yerel turizm bürosundan teyit etmenizi öneririz.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="180">
+          <button class="faq-btn" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+            <i class="fas fa-question-circle" style="color:var(--primary)"></i>
+            Yaylalara araçla çıkılabiliyor mu?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div id="faq4" class="collapse">
+            <div class="faq-body">
+              Kümbet, Kulakkaya ve diğer başlıca yaylalara asfalt ya da stabilize yollarla araçla ulaşılabilir. Yüksek rakımlı yaylalar için 4x4 araç veya yüksek kasiyer bir araç tercih etmeniz önerilir. Kış aylarında ve ilkbaharda yollar karlı olabilir; ilgili belediyeden güncel yol durumunu sormayı unutmayın.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="240">
+          <button class="faq-btn" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+            <i class="fas fa-question-circle" style="color:var(--primary)"></i>
+            Giresun fındığını nereden satın alabilirim?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div id="faq5" class="collapse">
+            <div class="faq-body">
+              Giresun fındığını şehir merkezindeki çarşı, hal ve yerel üreticilerden satın alabilirsiniz. Ağustos–Eylül hasat döneminde doğrudan üreticiden taze fındık almak mümkündür. Fındık ezmesi, fındıklı çikolata ve diğer ürünler ise yıl boyu souvenir dükkanlarında bulunabilir.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row g-4 pb-4 mb-2" style="border-bottom:1px solid rgba(255,255,255,.1)">
+      <div class="col-lg-4 col-md-6"><div class="footer-brand mb-3"><i class="fas fa-leaf me-2"></i>Giresun</div><p class="footer-text">Fındığın başkenti, Karadeniz'in incisi.</p><div class="social-icons mt-3"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Sayfalar</h6><ul class="footer-links"><li><a href="index.html">Ana Sayfa</a></li><li><a href="tarih.html">Tarihi</a></li><li><a href="gezilecek.html">Gezilecek</a></li><li><a href="yemekler.html">Yemekler</a></li><li><a href="galeri.html">Galeri</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="footer-heading">Keşfet</h6><ul class="footer-links"><li><a href="kultur.html">Kültür</a></li><li><a href="doga.html">Doğa</a></li><li><a href="spor.html">Spor</a></li><li><a href="iletisim.html">İletişim</a></li></ul></div>
+      <div class="col-lg-4 col-md-6"><h6 class="footer-heading">Bize Ulaşın</h6><div class="footer-contact"><p><i class="fas fa-map-marker-alt me-2 text-accent"></i>Giresun, Türkiye</p><p><i class="fas fa-phone me-2 text-accent"></i>+90 (454) 216 10 00</p><p><i class="fas fa-envelope me-2 text-accent"></i>info@giresun.bel.tr</p></div></div>
+    </div>
+    <div class="text-center py-2"><p class="footer-copy mb-0">© 2026 Giresun Tanıtım Sitesi</p></div>
+  </div>
+</footer>
+
+<div id="preloader"><div class="preloader-icon"><i class="fas fa-leaf"></i></div></div>
+<div id="fsModal" role="dialog" aria-modal="true"><button class="fs-close" onclick="closeModal()"><i class="fas fa-times"></i></button><div id="fsContent"></div></div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9998"><div id="mainToast" class="toast align-items-center text-bg-success border-0"><div class="d-flex"><div class="toast-body" id="toastMsg">İşlem başarılı!</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div></div></div>
+<button id="scrollTop" title="Yukarı çık"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const textarea = document.getElementById('fcMessage');
+  const counter  = document.getElementById('charCount');
+  if (textarea) {
+    textarea.addEventListener('input', function() {
+      counter.textContent = this.value.length;
+    });
+  }
+
+  document.querySelectorAll('.social-link-btn').forEach(function(el) {
+    el.style.cssText = 'display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;background:var(--surface);border:1px solid #e8f5e9;color:var(--text-primary);text-decoration:none;font-size:.8rem;font-weight:600;transition:all .25s';
+    el.addEventListener('mouseenter', function() { this.style.background='#e8f5e9'; });
+    el.addEventListener('mouseleave', function() { this.style.background='var(--surface)'; });
+  });
+});
+
+function handleContactSubmit() {
+  const name    = document.getElementById('fcName').value.trim();
+  const email   = document.getElementById('fcEmail').value.trim();
+  const subject = document.getElementById('fcSubject').value;
+  const message = document.getElementById('fcMessage').value.trim();
+  const privacy = document.getElementById('fcPrivacy').checked;
+
+  if (!name || !email || !subject || !message) {
+    showToast('Lütfen zorunlu alanları doldurun.', 'danger');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showToast('Geçerli bir e-posta adresi girin.', 'danger');
+    return;
+  }
+  if (!privacy) {
+    showToast('Gizlilik politikasını kabul etmelisiniz.', 'danger');
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Gönderiliyor...';
+
+  setTimeout(function() {
+    document.getElementById('contactForm').style.display = 'none';
+    const overlay = document.getElementById('successOverlay');
+    overlay.style.display = 'block';
+    showToast('Mesajınız başarıyla gönderildi!', 'success');
+  }, 1200);
+}
+
+function resetForm() {
+  document.getElementById('contactForm').style.display = 'block';
+  document.getElementById('successOverlay').style.display = 'none';
+  document.getElementById('fcName').value    = '';
+  document.getElementById('fcEmail').value   = '';
+  document.getElementById('fcPhone').value   = '';
+  document.getElementById('fcSubject').value = '';
+  document.getElementById('fcMessage').value = '';
+  document.getElementById('fcPrivacy').checked = false;
+  document.getElementById('charCount').textContent = '0';
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-paper-plane"></i>Mesajı Gönder';
+}
+
+function showToast(msg, type) {
+  var t = document.getElementById('mainToast');
+  var m = document.getElementById('toastMsg');
+  if (!t || !m) return;
+  m.textContent = msg;
+  t.className = 'toast align-items-center border-0 text-bg-' + (type || 'success');
+  var bsToast = bootstrap.Toast.getOrCreateInstance(t, { delay: 3500 });
+  bsToast.show();
+}
+</script>
+</body>
+</html>
